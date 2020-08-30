@@ -1,5 +1,5 @@
 {
-    "name": "kadota-fig/yii2-startbootstrap-sb-admin-2-asset",
+    "name": "kadotafig/yii2-startbootstrap-sb-admin-2-asset",
     "description": "This extensions is library for Startbootstrap SB Admin 2 Template with Bootstrap4",
     "type": "yii2-extension",
     "keywords": ["yii2","extension"],
@@ -10,7 +10,7 @@
             "email": "heru@belajararief.com"
         },
         {
-            "name": "kadota-fig",
+            "name": "kadotafig",
             "email": "webcad.help@gmail.com"
         }
     ],

@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "kadota-fig\\sbadmin2\\": ""
+            "kadotafig\\sbadmin2\\": ""
         }
     }
 }

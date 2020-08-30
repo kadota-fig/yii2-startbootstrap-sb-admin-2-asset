@@ -1,5 +1,5 @@
 <?php
-namespace hoaaah\sbadmin2\widgets;
+namespace kadotafig\sbadmin2\widgets;
 
 use Yii;
 use yii\bootstrap4\Widget;

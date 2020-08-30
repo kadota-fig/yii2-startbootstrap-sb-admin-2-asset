@@ -1,5 +1,5 @@
 <?php
-namespace hoaaah\sbadmin2\assets;
+namespace kadotafig\sbadmin2\assets;
 
 use yii\web\AssetBundle;
 

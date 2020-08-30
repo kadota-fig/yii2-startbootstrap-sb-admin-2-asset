@@ -33,13 +33,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require hoaaah/yii2-startbootstrap-sb-admin-2-asset:dev-master
+composer require kadotafig/yii2-startbootstrap-sb-admin-2-asset:dev-master
 ```
 
 or add
 
 ```
-"hoaaah/yii2-startbootstrap-sb-admin-2-asset": "*"
+"kadotafig/yii2-startbootstrap-sb-admin-2-asset": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -56,9 +56,9 @@ Menu Widget
 You can use Menu widget in your sidebar. This widget optimize for Startbootstrap SB-Admin 2 template.
 This widget, like SB-Admin 2, only support 2 level menu.
 
-You can see example use of this widget in [views-exampale/views/layout/sidebar.php](https://github.com/hoaaah/yii2-startbootstrap-sb-admin-2-asset/blob/master/views-examples/views/layouts/sidebar.php).
+You can see example use of this widget in [views-exampale/views/layout/sidebar.php](https://github.com/kadotafig/yii2-startbootstrap-sb-admin-2-asset/blob/master/views-examples/views/layouts/sidebar.php).
 ```php
-use hoaaah\sbadmin2\widgets\Menu;
+use kadotafig\sbadmin2\widgets\Menu;
 echo Menu::widget([
     'options' => [
         'ulClass' => "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion",
@@ -147,7 +147,7 @@ You can use card widget. This widget will create bootstrap card, optimize for th
 
 Example use of card are like below code
 ```php
-use hoaaah\sbadmin2\widgets\Card;
+use kadotafig\sbadmin2\widgets\Card;
 echo Card::widget([
     'type' => 'cardBorder',
     'label' => 'Label',

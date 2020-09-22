@@ -63,6 +63,9 @@ class Card extends Widget
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{bigLabel}</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{smallLabel}</div>
                         </div>
+                        <div class="card-body">
+                            {cardBody}
+                        </div>
                     <div class="col-auto">
                         <i class="fas fa-{faIcon} fa-2x text-gray-300"></i>
                     </div>
@@ -117,16 +120,20 @@ class Card extends Widget
 
     public function renderCardBorder()
     {
-        if($this->labelOptions['truncateWords']){
-            $this->label = StringHelper::truncateWords($this->label, $this->labelOptions['numberOfWords'], '...', true);
-            $this->sLabel = StringHelper::truncateWords($this->sLabel, $this->labelOptions['numberOfWords'], '...', true);
+        if(isset($this->labelOptions['truncateWords'])){
+            if($this->labelOptions['truncateWords']){
+                $this->label = StringHelper::truncateWords($this->label, $this->labelOptions['numberOfWords'], '...', true);
+                $this->sLabel = StringHelper::truncateWords($this->sLabel, $this->labelOptions['numberOfWords'], '...', true);
+            }
         }
+        
         return strtr($this->cardBorderTemplate, [
             '{colSizeClass}' => $this->options['colSizeClass'],
             '{cardBorder}' => $this->options['borderColor'],
             '{bigLabel}' => $this->label,
             '{smallLabel}' => $this->sLabel,
-            '{faIcon}' => $this->icon
+            '{faIcon}' => $this->icon,
+            '{cardBody}' => $this->body,
         ]);
     }
 

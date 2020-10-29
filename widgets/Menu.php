@@ -40,7 +40,7 @@ class Menu extends Widget
     public $options;
     public $items;
     public $brand;
-    public $setToggle;
+    public $setToggle = false;
 
     public $ulClass = "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion";
     public $ulId = "accordionSidebar";

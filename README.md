@@ -63,6 +63,7 @@ echo Menu::widget([
     'options' => [
         'ulClass' => "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion",
         'ulId' => "accordionSidebar"
+        'setToggle' => true, //optional turns on sidebarToggle
     ], //  optional
     'brand' => [
         'url' => ['/'],
@@ -153,6 +154,8 @@ echo Card::widget([
     'label' => 'Label',
     'sLabel' => '1000',
     'icon' => 'fas fa-calendar',
+    'iconUrl' => '/your/url', //optional <a class="{iconFormType}" href="{iconUrl}"><i class="fas fa-{faIcon} fa-2x text-gray-300"></i></a>
+    'iconFormType' => 'modal-form', //optional if iconUrl used
     'options' => [
         'colSizeClass' => 'col-md-3',
         'borderColor' => 'primary',

@@ -40,6 +40,7 @@ class Menu extends Widget
     public $options;
     public $items;
     public $brand;
+    public $setToggle;
 
     public $ulClass = "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion";
     public $ulId = "accordionSidebar";
@@ -82,6 +83,9 @@ class Menu extends Widget
     public $subMenuLinkTemplate = '<a class="{subMenuClass}" href="{url} {linkOptions}"><i class="{icon}"></i> {label}</a>';
     public $subMenuLinkClass = 'collapse-item';
     public $route;
+    public $sidebarToggle = '<div class="text-center d-none d-md-inline"> 
+                                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                                </div>';
 
 
     public function init() {
@@ -112,7 +116,11 @@ class Menu extends Widget
                 $return .= $this->renderItems($value, $key);
             }
         }
-
+        
+        if($this->options['setToggle']){
+            $return .= $this->sidebarToggle;
+        }
+        
         $return .= $this->endWidget();
 
         return $return;
@@ -231,6 +239,7 @@ class Menu extends Widget
     protected function setVisibility($item){
         return $item['visible'] ?? true;
     }
+
 
     /**
      * check if any menu item is active

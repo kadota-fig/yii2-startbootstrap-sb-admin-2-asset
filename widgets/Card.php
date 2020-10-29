@@ -1,6 +1,7 @@
 <?php
 namespace kadotafig\sbadmin2\widgets;
 
+use Yii;
 use yii\base\Widget;
 use yii\helpers\StringHelper;
 
@@ -48,11 +49,14 @@ class Card extends Widget
     public $label;
     public $sLabel;
     public $icon;
+    public $iconUrl;
+    public $iconFormType;
     public $options;
     public $labelOptions;
     public $colSizeClassDefault = 'col-xl-3 col-md-6 mb-4';
     public $borderColorDefault = 'primary';
     public $colorDefault = "primary";
+    public $iconTemplate;
 
     public $cardBorderTemplate = '
         <div class="{colSizeClass}">
@@ -67,7 +71,8 @@ class Card extends Widget
                             {cardBody}
                         </div>
                     <div class="col-auto">
-                        <i class="fas fa-{faIcon} fa-2x text-gray-300"></i>
+                        
+                        {iconTemplate}
                     </div>
                     </div>
                 </div>
@@ -86,9 +91,16 @@ class Card extends Widget
         </div>    
     ';
 
+    public $iconStdTemplate = '<i class="fas fa-{faIcon} fa-2x text-gray-300"></i>';
+    public $iconUrlTemplate = '<a class="{iconFormType}" href="{iconUrl}">
+                                    <i class="fas fa-{faIcon} fa-2x text-gray-300"></i>
+                                </a>';
+
+    //<a class="modal-form" href="/dashboard/notes/thingy"><i class="fas fa-sticky-note fa-2x text-gray-500"></i></a>
     public $defaultCardClass = "border-{cardColor} my-4";
     public $defaultHeaderClass = "card-header text-white bg-{cardColor} py-3";
 
+    
 
     public function init() {
         parent::init();
@@ -106,6 +118,7 @@ class Card extends Widget
             if(!isset($this->options['color'])) $this->options['color'] = $this->colorDefault;
             if(!isset($this->options['cardClass'])) $this->options['cardClass'] = $this->defaultCardClass;
             if(!isset($this->options['headerClass'])) $this->options['headerClass'] = $this->defaultHeaderClass;
+
         }
     }
 
@@ -126,13 +139,25 @@ class Card extends Widget
                 $this->sLabel = StringHelper::truncateWords($this->sLabel, $this->labelOptions['numberOfWords'], '...', true);
             }
         }
+        if(isset($this->iconUrl)){
+            $this->iconTemplate = strtr($this->iconUrlTemplate,[
+                '{iconFormType}' => $this->iconFormType,
+                '{faIcon}' => $this->icon,
+                '{iconUrl}' => $this->iconUrl,
+            ]);
+        } else {
+            $this->iconTemplate = strtr($this->iconStdTemplate,['{faIcon}' => $this->icon]);
+        }
+        
+        Yii::trace('Template: ' . $this->iconTemplate, 'note');
         
         return strtr($this->cardBorderTemplate, [
             '{colSizeClass}' => $this->options['colSizeClass'],
             '{cardBorder}' => $this->options['borderColor'],
             '{bigLabel}' => $this->label,
             '{smallLabel}' => $this->sLabel,
-            '{faIcon}' => $this->icon,
+            //'{faIcon}' => $this->icon,
+            '{iconTemplate}' => $this->iconTemplate,
             '{cardBody}' => $this->body,
         ]);
     }

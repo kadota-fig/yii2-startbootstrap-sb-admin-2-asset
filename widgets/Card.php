@@ -149,7 +149,7 @@ class Card extends Widget
             $this->iconTemplate = strtr($this->iconStdTemplate,['{faIcon}' => $this->icon]);
         }
         
-        Yii::trace('Template: ' . $this->iconTemplate, 'note');
+        //Yii::trace('Template: ' . $this->iconTemplate, 'note');
         
         return strtr($this->cardBorderTemplate, [
             '{colSizeClass}' => $this->options['colSizeClass'],
